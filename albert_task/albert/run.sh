@@ -1,0 +1,4 @@
+python run_classifier.py --task_name=lcqmc --do_train=true --do_eval=true --data_dir=../task_data/lcqmc --vocab_file=pre_trained_model/albert_tiny/vocab.txt --bert_config_file=pre_trained_model/albert_tiny/albert_config_tiny.json --max_seq_length=128 --train_batch_size=64 --learning_rate=1e-4 --num_train_epochs=5 --output_dir=output/lcqmc --init_checkpoint=pre_trained_model/albert_tiny/albert_model.ckpt
+
+
+python run_classifier.py --task_name=tnews --do_train=true --do_eval=true --data_dir=../task_data/tnews --vocab_file=pre_trained_model/albert_large/vocab.txt --bert_config_file=pre_trained_model/albert_large/albert_config_large.json --max_seq_length=128 --train_batch_size=8 --learning_rate=2e-5 --num_train_epochs=5 --output_dir=output/tnews --init_checkpoint=pre_trained_model/albert_large/albert_model.ckpt
