@@ -1,0 +1,18 @@
+{
+  "model_name": "ltr_pair",
+  "epochs": 5,
+  "checkpoint_every": 500,
+  "eval_every": 500,
+  "learning_rate": 2e-5,
+  "sequence_length": 32,
+  "batch_size": 8,
+  "num_samples": 2,
+  "train_n_tasks": 1000,
+  "eval_n_tasks": 500,
+  "margin": 0.5,
+  "warmup_rate": 0.1,
+  "output_path": "output",
+  "bert_model_path": "../albert_model/albert_tiny",
+  "data": "data/data.json",
+  "ckpt_model_path": "ckpt_model/"
+}
