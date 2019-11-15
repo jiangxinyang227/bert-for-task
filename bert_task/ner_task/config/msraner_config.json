@@ -1,0 +1,19 @@
+{
+  "model_name": "ner",
+  "epochs": 5,
+  "checkpoint_every": 1000,
+  "eval_every": 1000,
+  "learning_rate": 2e-5,
+  "sequence_length": 128,
+  "ner_layers": [128],
+  "ner_hidden_sizes": [128],
+  "batch_size": 16,
+  "num_classes": 7,
+  "keep_prob": 0.9,
+  "warmup_rate": 0.1,
+  "output_path": "output",
+  "bert_model_path": "../bert_model/chinese_L-12_H-768_A-12",
+  "train_data": "data/msraner/test.txt",
+  "eval_data": "data/msraner/test.txt",
+  "ckpt_model_path": "ckpt_model/"
+}
