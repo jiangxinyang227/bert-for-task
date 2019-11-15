@@ -1,0 +1,1 @@
+python trainer.py --config_path=config/msraner_config.json
