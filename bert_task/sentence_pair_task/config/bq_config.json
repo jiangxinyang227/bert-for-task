@@ -1,0 +1,16 @@
+{
+  "model_name": "sentence_pair",
+  "epochs": 5,
+  "checkpoint_every": 1000,
+  "eval_every": 1000,
+  "learning_rate": 5e-5,
+  "sequence_length": 128,
+  "batch_size": 32,
+  "num_classes": 1,
+  "warmup_rate": 0.1,
+  "output_path": "output/bq",
+  "bert_model_path": "../bert_model/chinese_L-12_H-768_A-12",
+  "train_data": "data/bq/dev.txt",
+  "eval_data": "data/bq/dev.txt",
+  "ckpt_model_path": "ckpt_model/bq"
+}

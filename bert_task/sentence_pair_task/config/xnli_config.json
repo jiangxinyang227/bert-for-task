@@ -1,0 +1,16 @@
+{
+  "model_name": "sentence_pair",
+  "epochs": 5,
+  "checkpoint_every": 10000,
+  "eval_every": 10000,
+  "learning_rate": 2e-5,
+  "sequence_length": 128,
+  "batch_size": 32,
+  "num_classes": 3,
+  "warmup_rate": 0.1,
+  "output_path": "output/xnli",
+  "bert_model_path": "../bert_model/chinese_L-12_H-768_A-12",
+  "train_data": "data/xnli/dev.txt",
+  "eval_data": "data/xnli/dev.txt",
+  "ckpt_model_path": "ckpt_model/xnli"
+}
