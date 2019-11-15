@@ -1,0 +1,16 @@
+{
+  "model_name": "classifier",
+  "epochs": 10,
+  "checkpoint_every": 1000,
+  "eval_every": 1000,
+  "learning_rate": 5e-5,
+  "sequence_length": 128,
+  "batch_size": 32,
+  "num_classes": 14,
+  "warmup_rate": 0.1,
+  "output_path": "output/thucnews",
+  "bert_model_path": "../albert_model/albert_tiny",
+  "train_data": "data/thucnews/dev.txt",
+  "eval_data": "data/thucnews/dev.txt",
+  "ckpt_model_path": "ckpt_model/thucnews"
+}
