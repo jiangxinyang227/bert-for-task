@@ -30,3 +30,8 @@
 ###### 我们采用了BIO的格式标注，也可以采用BIOS, BIEO, BIEOS标注，将输入中的词和标注都用\t分隔。
 * 慕 名 前 来 品 尝 玉 峰 茶 ， 领 略 茶 文 化 的 人 越 来 越 多 。\<SEP>o o o o o o B-ns I-ns o o o o o o o o o o o o o o
 
+#### 训练模型
+* 执行每个任务下的sh脚本即可，sh run.sh。只需要更改配置文件就可以训练不同的模型
+
+#### 预测
+* 执行albert_task中每个任务下的test.py文件就可以预测，bert_task同albert_task。
