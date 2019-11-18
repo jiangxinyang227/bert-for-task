@@ -52,13 +52,15 @@ class BertClassifier(object):
             logits = tf.nn.bias_add(logits, output_bias)
             self.predictions = tf.argmax(logits, axis=-1, name="predictions")
 
-        with tf.name_scope("loss"):
-            losses = tf.nn.sparse_softmax_cross_entropy_with_logits(logits=logits, labels=self.label_ids)
-            self.loss = tf.reduce_mean(losses, name="loss")
+        if self.__is_training:
 
-        with tf.name_scope('train_op'):
-            self.train_op = optimization.create_optimizer(
-                self.loss, self.__learning_rate, self.__num_train_step, self.__num_warmup_step, use_tpu=False)
+            with tf.name_scope("loss"):
+                losses = tf.nn.sparse_softmax_cross_entropy_with_logits(logits=logits, labels=self.label_ids)
+                self.loss = tf.reduce_mean(losses, name="loss")
+
+            with tf.name_scope('train_op'):
+                self.train_op = optimization.create_optimizer(
+                    self.loss, self.__learning_rate, self.__num_train_step, self.__num_warmup_step, use_tpu=False)
 
     def init_saver(self):
         self.saver = tf.train.Saver(tf.global_variables())
