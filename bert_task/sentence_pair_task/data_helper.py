@@ -106,9 +106,14 @@ class TrainData(object):
         """
         pad_input_ids, pad_input_masks, pad_segment_ids = [], [], []
         for input_id, input_mask, segment_id in zip(input_ids, input_masks, segment_ids):
-            pad_input_ids.append(input_id + [0] * (self._sequence_length - len(input_id)))
-            pad_input_masks.append(input_mask + [0] * (self._sequence_length - len(input_mask)))
-            pad_segment_ids.append(segment_id + [0] * (self._sequence_length - len(segment_id)))
+            if len(input_id) < self._sequence_length:
+                pad_input_ids.append(input_id + [0] * (self._sequence_length - len(input_id)))
+                pad_input_masks.append(input_mask + [0] * (self._sequence_length - len(input_mask)))
+                pad_segment_ids.append(segment_id + [0] * (self._sequence_length - len(segment_id)))
+            else:
+                pad_input_ids.append(input_id[:self._sequence_length])
+                pad_input_masks.append(input_mask[:self._sequence_length])
+                pad_segment_ids.append(segment_id[:self._sequence_length])
 
         return pad_input_ids, pad_input_masks, pad_segment_ids
 
