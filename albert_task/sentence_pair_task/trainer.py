@@ -7,7 +7,7 @@ import time
 sys.path.append(os.path.dirname(os.getcwd()))
 import tensorflow as tf
 from albert import modeling
-from model import BertSentencePair
+from model import AlbertSentencePair
 from data_helper import TrainData
 from metrics import mean, get_multi_metrics
 
@@ -51,7 +51,7 @@ class Trainer(object):
         根据config文件选择对应的模型，并初始化
         :return:
         """
-        model = BertSentencePair(config=self.config, num_train_step=num_train_step, num_warmup_step=num_warmup_step)
+        model = AlbertSentencePair(config=self.config, num_train_step=num_train_step, num_warmup_step=num_warmup_step)
         return model
 
     def train(self):
