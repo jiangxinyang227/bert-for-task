@@ -99,7 +99,7 @@ class Trainer(object):
 
                             f1, precision, recall = gen_metrics(pred_y=eval_predictions,
                                                                 true_y=eval_true_y,
-                                                                labels=self.lab_to_idx)
+                                                                label_to_index=self.lab_to_idx)
                             eval_recalls.append(recall)
                             eval_precisions.append(precision)
                             eval_f1s.append(f1)

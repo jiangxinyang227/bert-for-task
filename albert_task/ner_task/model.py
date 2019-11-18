@@ -44,7 +44,6 @@ class ALBertNer(object):
         # 获取bert最后一层的输出
         output_layer = model.get_sequence_output()
 
-        hidden_size = output_layer.shape[-1].value
         if self.__is_training:
             output_layer = tf.nn.dropout(output_layer, keep_prob=0.9)
 
@@ -60,9 +59,10 @@ class ALBertNer(object):
 
         self.loss, self.true_y, self.predictions = ner_model.construct_graph()
 
-        with tf.name_scope('train_op'):
-            self.train_op = optimization.create_optimizer(
-                self.loss, self.__learning_rate, self.__num_train_step, self.__num_warmup_step, use_tpu=False)
+        if self.__is_training:
+            with tf.name_scope('train_op'):
+                self.train_op = optimization.create_optimizer(
+                    self.loss, self.__learning_rate, self.__num_train_step, self.__num_warmup_step, use_tpu=False)
 
     def init_saver(self):
         self.saver = tf.train.Saver(tf.global_variables())
