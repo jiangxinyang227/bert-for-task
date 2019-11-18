@@ -7,7 +7,7 @@ from albert import modeling
 from albert import optimization
 
 
-class BertSentencePair(object):
+class AlbertSentencePair(object):
     def __init__(self, config, is_training=True, num_train_step=None, num_warmup_step=None):
         self.__bert_config_path = os.path.join(config["bert_model_path"], "albert_config.json")
         self.__num_classes = config["num_classes"]
@@ -55,17 +55,18 @@ class BertSentencePair(object):
             else:
                 self.predictions = tf.argmax(logits, axis=-1, name="predictions")
 
-        with tf.name_scope("loss"):
-            if self.__num_classes == 1:
-                losses = tf.nn.sigmoid_cross_entropy_with_logits(logits=tf.reshape(logits, [-1]),
-                                                                 labels=tf.cast(self.label_ids, dtype=tf.float32))
-            else:
-                losses = tf.nn.sparse_softmax_cross_entropy_with_logits(logits=logits, labels=self.label_ids)
-            self.loss = tf.reduce_mean(losses, name="loss")
+        if self.__is_training:
+            with tf.name_scope("loss"):
+                if self.__num_classes == 1:
+                    losses = tf.nn.sigmoid_cross_entropy_with_logits(logits=tf.reshape(logits, [-1]),
+                                                                     labels=tf.cast(self.label_ids, dtype=tf.float32))
+                else:
+                    losses = tf.nn.sparse_softmax_cross_entropy_with_logits(logits=logits, labels=self.label_ids)
+                self.loss = tf.reduce_mean(losses, name="loss")
 
-        with tf.name_scope('train_op'):
-            self.train_op = optimization.create_optimizer(
-                self.loss, self.__learning_rate, self.__num_train_step, self.__num_warmup_step, use_tpu=False)
+            with tf.name_scope('train_op'):
+                self.train_op = optimization.create_optimizer(
+                    self.loss, self.__learning_rate, self.__num_train_step, self.__num_warmup_step, use_tpu=False)
 
     def init_saver(self):
         self.saver = tf.train.Saver(tf.global_variables())
