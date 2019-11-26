@@ -1,0 +1,21 @@
+{
+  "model_name": "machine_reading",
+  "epochs": 10,
+  "checkpoint_every": 1000,
+  "eval_every": 1000,
+  "learning_rate": 5e-5,
+  "max_length": 512,
+  "doc_stride": 128,
+  "query_length": 64,
+  "max_answer_length": 30,
+  "n_best_size": 20,
+  "batch_size": 32,
+  "warmup_rate": 0.1,
+  "output_path": "output/cmrc2018",
+  "output_predictions_path": "output/cmrc2018/predictions.json",
+  "output_nbest_path": "output/cmrc2018/nbset.json",
+  "bert_model_path": "../albert_model/albert_tiny",
+  "train_data": "data/cmrc2018/cmrc2018_train.json",
+  "eval_data": "data/cmrc2018/cmrc2018_dev.json",
+  "ckpt_model_path": "ckpt_model/cmrc2018"
+}
