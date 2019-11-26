@@ -7,11 +7,12 @@
 * 需要下载albert的预训练模型放置在albert_task下，bert的预训练模型放置在bert_task下
 * 预训练模型的路径可以在xxx_config.json文件中配置
 
-#### 目前提供了4大类的任务，classifier，sentence pair，ner，learning to rank(pair wise)。基准数据集来自chineseGLUE
+#### 目前提供了4大类的任务，classifier，sentence pair，ner，learning to rank(pair wise)，machine reading。基准数据集来自chineseGLUE
 * classifier包括tnews，inews，thucnews
 * sentence pair包括bq，lcqmc，xnli
 * ner包括msraner
 * learning to rank(pair wise)是biendata上 **基于Adversarial Attack的问题等价性判别比赛**
+* machine reading包括cmrc2018
 
 #### 每个任务下的结构基本一致
 * config：放置每个具体任务的配置文件，包括训练参数，数据路径，模型存储路径
