@@ -1,0 +1,16 @@
+{
+  "model_name": "ltr_point",
+  "epochs": 5,
+  "checkpoint_every": 2000,
+  "eval_every": 2000,
+  "learning_rate": 3e-5,
+  "sequence_length": 64,
+  "batch_size": 16,
+  "neg_threshold": 0.4,
+  "warmup_rate": 0.1,
+  "output_path": "output",
+  "bert_model_path": "../albert_model/albert_tiny",
+  "train_data": "data/lcqmc/train.tsv",
+  "eval_data": "data/lcqmc/dev.tsv",
+  "ckpt_model_path": "ckpt_model/lcqmc"
+}
