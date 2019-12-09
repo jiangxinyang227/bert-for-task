@@ -1,0 +1,16 @@
+{
+  "model_name": "ltr_point",
+  "epochs": 5,
+  "checkpoint_every": 10000,
+  "eval_every": 10000,
+  "learning_rate": 2e-5,
+  "sequence_length": 64,
+  "batch_size": 16,
+  "neg_threshold": 0.4,
+  "warmup_rate": 0.1,
+  "output_path": "output",
+  "bert_model_path": "../bert_model/chinese_L-12_H-768_A-12",
+  "train_data": "data/dssm/train.tsv",
+  "eval_data": "data/dssm/dev.tsv",
+  "ckpt_model_path": "ckpt_model/"
+}
