@@ -3,11 +3,13 @@
 
 #### albert_task和bert_task文件夹中的内容基本一致
 * albert_task/albert是albert的源码
+* albert_task/albert_model中包含了四种albert的模型：albert_tiny, albert_base, albert_large, albert_xlarge
 * bert_task/bert是bert的源码
+* bert_task/bert_model中包含了中文bert模型
 * 需要下载albert的预训练模型放置在albert_task下，bert的预训练模型放置在bert_task下
 * 预训练模型的路径可以在xxx_config.json文件中配置
 
-#### 目前提供了4大类的任务，classifier，sentence pair，ner，learning to rank(pair wise)，machine reading。基准数据集来自chineseGLUE
+#### 目前提供了5大类的任务，classifier，sentence pair，ner，learning to rank(pair wise)，machine reading。基准数据集来自chineseGLUE
 * classifier包括tnews，inews，thucnews
 * sentence pair包括bq，lcqmc，xnli
 * ner包括msraner
@@ -30,7 +32,15 @@
 ##### ner数据格式
 ###### 我们采用了BIO的格式标注，也可以采用BIOS, BIEO, BIEOS标注，将输入中的词和标注都用\t分隔。
 * 慕 名 前 来 品 尝 玉 峰 茶 ， 领 略 茶 文 化 的 人 越 来 越 多 。\<SEP>o o o o o o B-ns I-ns o o o o o o o o o o o o o o
-
+##### 阅读理解数据格式
+* context：抽取式阅读理解的上下文
+* question：问题
+* answer：答案，从context中抽取一个片段
+* start_position: answer的起始位置
+* end_position: answer的终止位置
+##### learning_to_rank
+* point wise：随机采样正样本对和负样本对组成一个样本对的分类问题，和句子对数据格式一致。
+* pair wise：给定一个query，抽取一个和query相似的正样本，抽取若干个和query不相似的负样本。
 #### 训练模型
 * 执行每个任务下的sh脚本即可，sh run.sh。只需要更改配置文件就可以训练不同的模型
 
