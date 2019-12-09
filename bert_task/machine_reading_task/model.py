@@ -8,7 +8,7 @@ from bert import modeling
 from bert import optimization
 
 
-class BertClassifier(object):
+class BertMachineReading(object):
     def __init__(self, config, is_training=True, num_train_step=None, num_warmup_step=None):
         self.__bert_config_path = os.path.join(config["bert_model_path"], "bert_config.json")
 
