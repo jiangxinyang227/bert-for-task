@@ -10,7 +10,7 @@
   "warmup_rate": 0.1,
   "output_path": "output/tnews",
   "bert_model_path": "../bert_model/chinese_L-12_H-768_A-12",
-  "train_data": "data/tnews/dev.txt",
+  "train_data": "data/tnews/train.txt",
   "eval_data": "data/tnews/dev.txt",
   "ckpt_model_path": "ckpt_model/tnews"
 }
