@@ -7,7 +7,8 @@ import tensorflow as tf
 from albert import modeling
 from albert import optimization_finetuning as optimization
 
-class BertClassifier(object):
+
+class AlbertMachineReading(object):
     def __init__(self, config, is_training=True, num_train_step=None, num_warmup_step=None):
         self.__bert_config_path = os.path.join(config["bert_model_path"], "albert_config.json")
 

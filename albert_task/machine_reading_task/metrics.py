@@ -1,12 +1,9 @@
 """
 定义各类性能指标
 """
-import re
 import json
 import math
 import collections
-
-from collections import OrderedDict
 
 
 def get_best_indexes(logits, n_best_size):

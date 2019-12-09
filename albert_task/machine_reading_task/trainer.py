@@ -7,7 +7,7 @@ import sys
 sys.path.append(os.path.dirname(os.getcwd()))
 import tensorflow as tf
 from albert import modeling
-from model import BertClassifier
+from model import AlbertMachineReading
 from data_helper import TrainData
 from metrics import get_eval, write_predictions
 
@@ -47,7 +47,7 @@ class Trainer(object):
         根据config文件选择对应的模型，并初始化
         :return:
         """
-        model = BertClassifier(config=self.config, num_train_step=num_train_step, num_warmup_step=num_warmup_step)
+        model = AlbertMachineReading(config=self.config, num_train_step=num_train_step, num_warmup_step=num_warmup_step)
         return model
 
     def train(self):
