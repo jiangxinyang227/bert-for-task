@@ -80,8 +80,7 @@ class TrainData(object):
             input_id = tokenizer.convert_tokens_to_ids(tokens)
             input_ids.append(input_id)
             input_masks.append([1] * len(input_id))
-            segment_ids.append([0] * (len(tokens_a) + 2))
-            segment_ids.append([1] * (len(tokens_b) + 1))
+            segment_ids.append([0] * (len(tokens_a) + 2) + [1] * (len(tokens_b) + 1))
 
         return input_ids, input_masks, segment_ids
 
