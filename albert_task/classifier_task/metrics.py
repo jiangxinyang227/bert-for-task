@@ -157,6 +157,7 @@ def get_binary_metrics(pred_y, true_y, f_beta=1.0):
     :param f_beta:
     :return:
     """
+    pred_y = pred_y.tolist()
     acc = accuracy(pred_y, true_y)
     auc = binary_auc(pred_y, true_y)
     recall = binary_recall(pred_y, true_y)
@@ -174,6 +175,7 @@ def get_multi_metrics(pred_y, true_y, labels, f_beta=1.0):
     :param f_beta:
     :return:
     """
+    pred_y = pred_y.tolist()
     acc = accuracy(pred_y, true_y)
     recall = multi_recall(pred_y, true_y, labels)
     precision = multi_precision(pred_y, true_y, labels)

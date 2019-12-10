@@ -17,6 +17,8 @@ class AlbertClassifier(object):
         self.__num_train_step = num_train_step
         self.__num_warmup_step = num_warmup_step
 
+        self.config = config
+
         self.input_ids = tf.placeholder(dtype=tf.int32, shape=[None, None], name='input_ids')
         self.input_masks = tf.placeholder(dtype=tf.int32, shape=[None, None], name='input_mask')
         self.segment_ids = tf.placeholder(dtype=tf.int32, shape=[None, None], name='segment_ids')
